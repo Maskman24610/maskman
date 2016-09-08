@@ -11,7 +11,7 @@ public class TCPClient2 {
 	public static void main(String[] args) {
 	  long start=System.currentTimeMillis();
 	  try{
-		  Socket client=new Socket(InetAddress.getByName("10.2.24."),5566);
+		  Socket client=new Socket(InetAddress.getByName("10.2.24.148"),5566);
 		  BufferedOutputStream bout = 
 					new BufferedOutputStream(client.getOutputStream());
 				BufferedInputStream bin = 
