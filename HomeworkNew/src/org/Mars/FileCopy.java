@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.BufferedReader;
@@ -69,11 +71,14 @@ public class FileCopy {
 				destination.mkdirs();
 			}
 		    try{
-		    	File des_file=new File(destination,source.getAbsolutePath());
+		    	File des_file=new File(destination,source.getPath());
 		    	System.out.println(des_file.getPath());
 		    	System.out.println("開始執行複製");
+		    	if(!des_file.isFile()){
+		    		des_file.createNewFile();
+		    	}
 		    	//FileOutputStream不知為何會拋出例外，導致下面的複製程序完全沒有執行，明明確認過檔案是存在的
-                FileOutputStream fout=new FileOutputStream(des_file);
+                OutputStream fout=new FileOutputStream(des_file);
                 System.out.println("建立FileOutputStream");
                 System.out.println("Before InputStream");
                 FileInputStream fin=new FileInputStream(source);
