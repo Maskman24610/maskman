@@ -91,6 +91,18 @@ public class DrawlPanel extends JFrame{
 			  doRestore();
 			}
 		});
+		
+		save.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				doSave();
+			}
+		});//end save ActionListener
+		
+		load.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				doLoad();
+			}
+		});//end load ActionListener
 	}//close method setupEvent
 	
 	private void doClear(){
@@ -122,6 +134,15 @@ public class DrawlPanel extends JFrame{
 	
 	private void doRestore(){
 		painter.Restore();
+		repaint();
+	}//close method doRestore
+	
+	private void doSave(){
+		painter.Save();
+	}//close method doSave
+	private void doLoad(){
+		painter.Load();
+		repaint();
 	}
     public static void main(String[] args){
     	new DrawlPanel();

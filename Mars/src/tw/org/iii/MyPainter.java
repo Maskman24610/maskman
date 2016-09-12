@@ -1,5 +1,6 @@
 package tw.org.iii;
 
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -7,6 +8,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -16,6 +19,7 @@ import java.util.LinkedList;
 import java.util.HashMap;
 
 public class MyPainter extends JPanel{
+	MyPainter painter;
 	private LinkedList<LinkedList<HashMap<String,Integer>>> lines,recycle;
 	public MyPainter(){
 		//setBackground(new Color(100,0,80));  //Color(r,g,b)  r:red,g:green,b:blue
@@ -62,6 +66,9 @@ public class MyPainter extends JPanel{
     	    FileOutputStream fout=new FileOutputStream(new File("dir1/painter.txt"));
     	    ObjectOutputStream os=new ObjectOutputStream(fout);
     	    os.writeObject(lines);
+    	    os.flush();
+    	    os.close();
+    	    fout.close();
     	}
     	catch(Exception e){
     		e.printStackTrace();
@@ -69,12 +76,50 @@ public class MyPainter extends JPanel{
     }//close method serializable()
     
     void Restore(){
-    	lines=new LinkedList<>();
+    	//lines=new LinkedList<>();
     	try{
     		FileInputStream fin=new FileInputStream(new File("dir1/painter.txt"));
             ObjectInputStream ois=new ObjectInputStream(fin);
             lines=(LinkedList)ois.readObject();
-            repaint();
+            ois.close();
+            fin.close();
+    	}
+    	catch(Exception e){
+    		e.printStackTrace();
+    	}
+    }//close method Restore
+    
+    void Save(){
+    	JFileChooser fileSave=new JFileChooser();
+    	fileSave.showSaveDialog(painter);
+    	saveFile(fileSave.getSelectedFile());
+    }//close method Save
+    void saveFile(File file){
+    	try{
+    		FileOutputStream fout=new FileOutputStream(file);
+            ObjectOutputStream os=new ObjectOutputStream(fout);
+            os.writeObject(lines);
+            os.flush();
+            fout.close();
+            os.close();
+    	}
+    	catch(Exception e){
+    		e.printStackTrace();
+    	}
+    }//close method saveFile
+    
+    void Load(){
+    	JFileChooser fileLoad=new JFileChooser();
+    	fileLoad.showOpenDialog(painter);
+    	loadFile(fileLoad.getSelectedFile());
+    }//close method Load
+    void loadFile(File file){
+    	try{
+    	  FileInputStream fin=new FileInputStream(file);
+    	  ObjectInputStream oin=new ObjectInputStream(fin);
+    	  lines=(LinkedList) oin.readObject();
+    	  fin.close();
+    	  oin.close();
     	}
     	catch(Exception e){
     		e.printStackTrace();
