@@ -1,5 +1,6 @@
 package tw.org.iii;
 
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,8 +14,10 @@ public class Racing extends JFrame{
 	private JLabel[] lanes;
     private int rank=1;
     private Car[] cars;
+    MyClock clock=new MyClock();
 	public Racing(){
-		setLayout(new GridLayout(9,1));
+		setLayout(new GridLayout(10,1));
+		add(clock);
 		add(go=new JButton("Go!"));
 		lanes=new JLabel[8];
 		for(int i=0;i<lanes.length;i++){
