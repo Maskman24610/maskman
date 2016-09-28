@@ -70,7 +70,7 @@ public class ClockPanel extends JPanel{
 	g.drawLine(cx,cy,(int)(cx+dxm),(int)(cy-dym));
 	//畫時針
 	g.setColor(new Color(150,100,200));
-	int rh=r/10*6;
+	int rh=r/10*4;
 	double dxh=(rh*Math.cos(Math.toRadians(90-hour*30-minute*30/60)));
 	double dyh=(rh*Math.sin(Math.toRadians(90-hour*30-minute*30/60)));
 	g.drawLine(cx,cy,(int)(cx+dxh),(int)(cy-dyh));

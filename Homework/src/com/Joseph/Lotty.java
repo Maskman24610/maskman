@@ -46,9 +46,7 @@ public class Lotty {
 //				ActionWork worker=new ActionWork();
 //				worker.execute();
 				go();
-				//label.repaint();
-				//background.repaint();
-				//frame.repaint();
+				panel.updateUI();
 			}
 		});
 	    frame=new JFrame("給一組威力彩號碼");

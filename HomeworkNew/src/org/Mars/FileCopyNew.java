@@ -12,11 +12,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.BufferedReader;
 
-public class FileCopy {
+public class FileCopyNew {
 	 BufferedReader reader;
 	 static String sourceName;
 	 static String desName;
-    private FileCopy(){
+    public FileCopyNew(){
     	File source;
     	File destination;
     	boolean isOK=false;
@@ -41,6 +41,7 @@ public class FileCopy {
     	            System.out.println("請輸入目標檔(要複製過去的資料夾)");
     	            desName=reader.readLine();
     	            String[] des=desName.split("/");
+    	            for(String s:des) System.out.println(s);
     	            if(!des[0].equals("C:")&&!des[0].equals("D:")&&!des[0].equals("Q:")){
     	     	        System.out.println("你所選擇的硬碟槽不存在，請從新輸入");
     	            }
@@ -60,28 +61,30 @@ public class FileCopy {
    
     }//close constructor
 	public static void main(String[] args) {
-	  new FileCopy();
+	  new FileCopyNew();
 	}//close method main()
     
 	public void copy(File source,File destination){
 		source=new File(sourceName);
 		destination=new File(desName);
 		if(source.isFile()){
-			if(!destination.exists()){
-				destination.mkdirs();
-			}
+		
 		    try{
-		    	String[] sou=sourceName.split("/");
-		    	for(String s:sou)
-		    	System.out.println(s);
-		    	File des_file=new File(destination,sou[sou.length-1]);
+		    	//String[] sou =sourceName.split("/");
+		    	
+		    	File des_file=new File(destination,source.getName());
 		    	System.out.println(des_file.getPath());
 		    	System.out.println("開始執行複製");
+		    	//調整
+		    	
+		    	if(!des_file.exists()){
+		    		des_file.createNewFile();
+		    	}
 		    	//FileOutputStream不知為何會拋出例外，導致下面的複製程序完全沒有執行，明明確認過檔案是存在的
                 OutputStream fout=new FileOutputStream(des_file);
                 System.out.println("建立FileOutputStream");
                 System.out.println("Before InputStream");
-                InputStream fin=new FileInputStream(source);
+                FileInputStream fin=new FileInputStream(source);
 		        System.out.println("建立FileInputStream");
 		        byte[] b=new byte[1024];
 				int c;
@@ -106,36 +109,30 @@ public class FileCopy {
 		    	System.out.println("SecurityException xxxx");
 		    }
 		}
+		// 當 source is directory
 		else{
+			String[] sou=sourceName.split("/");
+			destination=new File(desName+"\\"+sou[sou.length-1]);
+			if(!destination.exists()){
+				destination.mkdirs();
+			}
 			for( File f:source.listFiles()){
 				if(f.isDirectory()){
 					//找下面一層
-					if(!new File(destination,f.getPath()).exists()){
-						new File(destination,f.getPath()).mkdirs();
-						System.out.println(destination+f.getAbsolutePath() +".... ok"  );
-					}
+					if(!new File(destination,f.getName()).exists()){
+						new File(destination,f.getName()).mkdirs();
+						System.out.println(destination.getPath()+f.getName()+".... ok"  );  					
+				    }
+//					for(File innerf: f.listFiles()){
+//						copy(innerf,new File(destination,f.getName()));
+//					}
 					copy(f,destination);
 				}
-				else{
-					//執行檔案複製
-					File des_file=new File(destination,f.getPath());
-					System.out.println(des_file.getPath());
-					try{
-						OutputStream out=new FileOutputStream(des_file);
-						InputStream in=new FileInputStream(f);
-						byte[] b=new byte[1024];
-						int c;
-						while((c=in.read(b))!=-1){
-							out.write(b);
-						}//end while loop
-						System.out.println(destination+f.getAbsolutePath() +".... ok"  );
-						out.flush();
-						out.close();
-						in.close();
-					}
-					catch(Exception e){
-						System.out.println(e.toString());
-					}
+				else if (f.isFile()){                              //當 f is a file
+					
+					System.out.println(destination.getPath());
+					
+                    //copy(f,destination);					
 				}
 			}//end for loop
 		}
