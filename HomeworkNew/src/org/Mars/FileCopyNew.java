@@ -123,16 +123,16 @@ public class FileCopyNew {
 						new File(destination,f.getName()).mkdirs();
 						System.out.println(destination.getPath()+f.getName()+".... ok"  );  					
 				    }
-//					for(File innerf: f.listFiles()){
-//						copy(innerf,new File(destination,f.getName()));
-//					}
+					for(File innerf: f.listFiles()){
+						copy(innerf,new File(destination,f.getName()));
+					}
 					copy(f,destination);
 				}
 				else if (f.isFile()){                              //當 f is a file
 					
 					System.out.println(destination.getPath());
 					
-                    //copy(f,destination);					
+                    copy(f,destination);					
 				}
 			}//end for loop
 		}
