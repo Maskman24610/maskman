@@ -28,7 +28,7 @@ public class Mars59 {
 			
 			//4. extect Statement
 			stmt.executeUpdate("INSERT INTO cust (cname,tel,birthday)"+
-			"VALUES ('Joseph','0930743877','1989-06-07')");
+			"VALUES ('Mingying,Lin','0939909920','1988-12-26')");
 			
 			ResultSet rs=stmt.executeQuery("SELECT*FROM cust");
 			while(rs.next()){
