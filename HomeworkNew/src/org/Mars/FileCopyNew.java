@@ -16,6 +16,7 @@ public class FileCopyNew {
 	 BufferedReader reader;
 	 static String sourceName;
 	 static String desName;
+	 static long len;
     public FileCopyNew(){
     	File source;
     	File destination;
@@ -26,6 +27,7 @@ public class FileCopyNew {
     	       System.out.println("請輸入來源檔案(想要複製的檔案或資料夾)");
     	       sourceName=reader.readLine();
     	       source=new File(sourceName);
+    	       len=source.length();
     	       if(!source.exists()){
     	    	  System.out.println("來源檔不在，請從新輸入檔名");
     	    	  isOK=true;
@@ -65,10 +67,10 @@ public class FileCopyNew {
 	}//close method main()
     
 	public void copy(File source,File destination){
-		source=new File(sourceName);
-		destination=new File(desName);
+//		source=new File(sourceName);
+//		destination=new File(desName);
 		if(source.isFile()){
-		
+			
 		    try{
 		    	//String[] sou =sourceName.split("/");
 		    	
@@ -86,7 +88,7 @@ public class FileCopyNew {
                 System.out.println("Before InputStream");
                 FileInputStream fin=new FileInputStream(source);
 		        System.out.println("建立FileInputStream");
-		        byte[] b=new byte[1024];
+		        byte[] b=new byte[(int) len];
 				int c;
 			    System.out.println("start");
 				while((c=fin.read(b))!=-1){
@@ -112,7 +114,7 @@ public class FileCopyNew {
 		// 當 source is directory
 		else{
 			String[] sou=sourceName.split("/");
-			destination=new File(desName+"\\"+sou[sou.length-1]);
+			destination=new File(desName+"/"+sou[sou.length-1]);
 			if(!destination.exists()){
 				destination.mkdirs();
 			}
@@ -126,13 +128,12 @@ public class FileCopyNew {
 					for(File innerf: f.listFiles()){
 						copy(innerf,new File(destination,f.getName()));
 					}
-					copy(f,destination);
 				}
 				else if (f.isFile()){                              //當 f is a file
 					
-					System.out.println(destination.getPath());
-					
-                    copy(f,destination);					
+					System.out.println(destination.getPath()+f.getName());
+                    copy(f,destination);
+                    System.out.println(destination.getPath()+f.getName()+"...OK");
 				}
 			}//end for loop
 		}
