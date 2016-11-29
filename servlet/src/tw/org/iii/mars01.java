@@ -48,9 +48,13 @@ public class mars01 extends HttpServlet {
 		}
 		
 		try{
-			response.setContentType("charset=Utf-8");
+//			request.setCharacterEncoding("utf-8");
+			response.setCharacterEncoding("utf-8");
 			PrintWriter  out=response.getWriter();
-			out.write("雲羅公主，我愛你愛了五百年");
+			out.write("天殘:雲羅公主，我愛你愛了五百年\n");
+			out.write("林明瑩我喜歡妳。");
+			out.write("\t 我真是沒有用");
+			System.out.println("林明瑩我喜歡妳");
 			out.flush();
 			out.close();
 		}
