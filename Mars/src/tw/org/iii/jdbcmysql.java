@@ -160,7 +160,7 @@ public class jdbcmysql {
 		// TODO Auto-generated method stub
 	  //測看看是否正常 
 	jdbcmysql test=new jdbcmysql();
-	//test.createDatabase();
+	test.createDatabase();
 	test.dropTable();
 	test.createTable();
 	test.insertTable("mingying","1226");
