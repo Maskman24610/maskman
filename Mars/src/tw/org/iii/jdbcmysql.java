@@ -20,8 +20,6 @@ public class jdbcmysql {
     
    private  String dropdbSQL="DROP TABLE User";
    
-   private String createdatabaseSQL="Create database TestDB default character set  Utf8";
-   
    private  String createdbSQL="CREATE TABLE User("+
    "id INTEGER primary key,"+
    "name NVARCHAR(20),"+
@@ -50,19 +48,6 @@ public class jdbcmysql {
 	   }//有可能會產生sqlExceptioin
 	   catch(SQLException x){
 		   System.out.println("Exception: "+x.toString());
-	   }
-   }
-   //建立新資料庫的方式 建立一個名為TestDB的資料庫
-   public void createDatabase(){
-	   try{
-		   stat=con.createStatement();
-		   stat.executeUpdate(createdatabaseSQL);
-	   }
-	   catch(SQLException e){
-		   System.out.println("CreateDB Exception: "+e.toString());
-	   }
-	   finally{
-		   Close();
 	   }
    }
    
@@ -160,13 +145,12 @@ public class jdbcmysql {
 		// TODO Auto-generated method stub
 	  //測看看是否正常 
 	jdbcmysql test=new jdbcmysql();
-	test.createDatabase();
 	test.dropTable();
 	test.createTable();
 	test.insertTable("mingying","1226");
 	test.insertTable("mars","0607");
 	test.insertTable("許用","jshoong5846");
-	test.insertTable("林明瑩我喜歡妳","19881226");
+	test.insertTable("林明瑩","19881226");
 	test.insertTable("許功蓋","shoong5846");
 	test.SelectTable();
 	}
