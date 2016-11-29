@@ -166,7 +166,7 @@ public class jdbcmysql {
 	test.insertTable("mingying","1226");
 	test.insertTable("mars","0607");
 	test.insertTable("許用","jshoong5846");
-	test.insertTable("林明瑩","19881226");
+	test.insertTable("林明瑩我喜歡妳","19881226");
 	test.insertTable("許功蓋","shoong5846");
 	test.SelectTable();
 	}
