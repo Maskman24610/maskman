@@ -20,6 +20,8 @@ public class jdbcmysql {
     
    private  String dropdbSQL="DROP TABLE User";
    
+   private String createdatabaseSQL="Create database TestDB default character set  Utf8";
+   
    private  String createdbSQL="CREATE TABLE User("+
    "id INTEGER primary key,"+
    "name NVARCHAR(20),"+
@@ -50,7 +52,19 @@ public class jdbcmysql {
 		   System.out.println("Exception: "+x.toString());
 	   }
    }
-   
+   //建立資料庫的方法 建立一個名為testDB的資料庫
+   public void createDatabase(){
+	   try{
+		   stat=con.createStatement();
+		   stat.executeUpdate(createdatabaseSQL);
+	   }
+	   catch(SQLException e){
+		   System.out.println("CreateDB Exception: "+e.toString());
+	   }
+	   finally{
+		   Close();
+	   }
+   }
    //建立table的方式 
    //可以看看Statement的使用方式
    public void createTable(){
@@ -145,7 +159,7 @@ public class jdbcmysql {
 		// TODO Auto-generated method stub
 	  //測看看是否正常 
 	jdbcmysql test=new jdbcmysql();
-	//test.createDatabase();
+	test.createDatabase();
 	test.dropTable();
 	test.createTable();
 	test.insertTable("mingying","1226");
