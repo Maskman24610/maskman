@@ -45,10 +45,6 @@ public class mars09 extends HttpServlet {
 	   dispatcher.include(request,response);
 	   out.println("<hr>");
 	   out.println("Copyleft");
-//		out.print("<hr>");
-//		dispatcher.include(request, response);
-//		out.println("<hr>");
-//		out.println("Copyleft");
 	}
 
 	/**
