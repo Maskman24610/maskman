@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" metadata-complete="true" version="3.1">
+  <servlet>
+    <servlet-name>mars06</servlet-name>
+    <servlet-class>tw.org.iii.mars06</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars06</servlet-name>
+    <url-pattern>/mars06.go</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars07</servlet-name>
+    <servlet-class>tw.org.iii.mars07</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars07</servlet-name>
+    <url-pattern>/mars07.go</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars08</servlet-name>
+    <servlet-class>tw.org.iii.mars08</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars08</servlet-name>
+    <url-pattern>/mars08</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mars09</servlet-name>
+    <servlet-class>tw.org.iii.mars09</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars09</servlet-name>
+    <url-pattern>/mars09</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mars10</servlet-name>
+    <servlet-class>tw.org.iii.mars10</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars10</servlet-name>
+    <url-pattern>/mars10</url-pattern>
+  </servlet-mapping>
+  
+  <context-param>
+    <description>檔案上傳目錄</description>
+    <param-name>upload-path</param-name>
+    <param-value>C:\Users\Joseph\git\maskman\servlet\WebContent\upload</param-value>
+  </context-param>
+</web-app>
