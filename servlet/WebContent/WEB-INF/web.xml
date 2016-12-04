@@ -24,7 +24,6 @@
     <servlet-name>mars08</servlet-name>
     <url-pattern>/mars08</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>mars09</servlet-name>
     <servlet-class>tw.org.iii.mars09</servlet-class>
@@ -33,7 +32,6 @@
     <servlet-name>mars09</servlet-name>
     <url-pattern>/mars09</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>mars10</servlet-name>
     <servlet-class>tw.org.iii.mars10</servlet-class>
@@ -42,7 +40,55 @@
     <servlet-name>mars10</servlet-name>
     <url-pattern>/mars10</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>mars11</servlet-name>
+    <servlet-class>tw.org.iii.mars11</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars11</servlet-name>
+    <url-pattern>/mars11</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars12</servlet-name>
+    <servlet-class>tw.org.iii.mars12</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars12</servlet-name>
+    <url-pattern>/mars12</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars13</servlet-name>
+    <servlet-class>tw.org.iii.mars13</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars13</servlet-name>
+    <url-pattern>/mars13</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars14</servlet-name>
+    <servlet-class>tw.org.iii.mars14</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars14</servlet-name>
+    <url-pattern>/mars14</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars15</servlet-name>
+    <servlet-class>tw.org.iii.mars15</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars15</servlet-name>
+    <url-pattern>/mars15</url-pattern>
+  </servlet-mapping>
   
+   <servlet>
+    <servlet-name>mars16</servlet-name>
+    <servlet-class>tw.org.iii.mars16</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars16</servlet-name>
+    <url-pattern>/mars16</url-pattern>
+  </servlet-mapping>
   <context-param>
     <description>檔案上傳目錄</description>
     <param-name>upload-path</param-name>
