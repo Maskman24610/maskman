@@ -80,8 +80,7 @@
     <servlet-name>mars15</servlet-name>
     <url-pattern>/mars15</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>mars16</servlet-name>
     <servlet-class>tw.org.iii.mars16</servlet-class>
   </servlet>
@@ -89,9 +88,70 @@
     <servlet-name>mars16</servlet-name>
     <url-pattern>/mars16</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>mars18</servlet-name>
+    <servlet-class>tw.org.iii.mars18</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars18</servlet-name>
+    <url-pattern>/mars18</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars19</servlet-name>
+    <servlet-class>tw.org.iii.mars19</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars19</servlet-name>
+    <url-pattern>/mars19</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars20</servlet-name>
+    <servlet-class>tw.org.iii.mars20</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars20</servlet-name>
+    <url-pattern>/mars20</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars21</servlet-name>
+    <servlet-class>tw.org.iii.mars21</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars21</servlet-name>
+    <url-pattern>/mars21</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars22</servlet-name>
+    <servlet-class>tw.org.iii.mars22</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars22</servlet-name>
+    <url-pattern>/mars22</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars23</servlet-name>
+    <servlet-class>tw.org.iii.mars23</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars23</servlet-name>
+    <url-pattern>/mars23</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MarsUtils</servlet-name>
+    <servlet-class>tw.org.iii.MarsUtils</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MarsUtils</servlet-name>
+    <url-pattern>/MarsUtils</url-pattern>
+  </servlet-mapping>
   <context-param>
     <description>檔案上傳目錄</description>
     <param-name>upload-path</param-name>
     <param-value>C:\Users\Joseph\git\maskman\servlet\WebContent\upload</param-value>
+  </context-param>
+  <context-param>
+    <description>圖片上傳目錄</description>
+    <param-name>imgs-path</param-name>
+    <param-value>C:\Users\Joseph\git\maskman\servlet\WebContent\imgs</param-value>
   </context-param>
 </web-app>

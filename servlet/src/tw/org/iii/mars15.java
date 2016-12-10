@@ -43,7 +43,7 @@ public class mars15 extends HttpServlet {
  		   Properties prop=new Properties();
  		   prop.setProperty("user", "root");
  		   prop.setProperty("password", "root");
- 		   conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1/iii",prop);
+ 		   conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1/iii?&setCharacter=Utf-8",prop);
  	       System.out.println("OK");
  	   }
  	   catch(Exception e){
@@ -56,32 +56,45 @@ public class mars15 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	  response.setContentType("text/html;charset=utf-8");
-	  request.setCharacterEncoding("Utf-8");
-	  response.setCharacterEncoding("Utf-8");
-	  out=response.getWriter();
-	  
-	  String type=request.getParameter("type");
-	  String delid=request.getParameter("delid");
-	  if(type!=null&& type.equals("add")){
-		  //insert
-		  String account=request.getParameter("account");
-		  String passwd=request.getParameter("passwd");
-		  String realname=request.getParameter("realname");
-		  addData(account,passwd,realname);
-	  }
-	  else if(delid!=null){
-		  delData(delid);
-	  }
-	  else if(type!=null&&type.equals("edit")){
-		  String updateid=request.getParameter("updateid");
-		  String account=request.getParameter("account");
-		  String passwd=request.getParameter("passwd");
-		  String realname=request.getParameter("realname");
-		  editData(updateid,account,passwd,realname);
-	  }
-	  outHtml(queryData());
+		doGetAndPost(request,response);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//super.doPost(req, resp);
+		doGetAndPost(request,response);
+	}
+	
+	private void doGetAndPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		response.setContentType("text/html;charset=utf-8");
+		  request.setCharacterEncoding("Utf-8");
+		  response.setCharacterEncoding("Utf-8");
+		  out=response.getWriter();
+		  
+		  String type=request.getParameter("type");
+		  String delid=request.getParameter("delid");
+		  if(type!=null&& type.equals("add")){
+			  //insert
+			  String account=request.getParameter("account");
+			  String passwd=MarsUtils.hashPassword(request.getParameter("passwd"));
+			  String realname=request.getParameter("realname");
+			  addData(account,passwd,realname);
+		  }
+		  else if(delid!=null){
+			  delData(delid);
+		  }
+		  else if(type!=null&&type.equals("edit")){
+			  String updateid=request.getParameter("updateid");
+			  String account=request.getParameter("account");
+			  String passwd=request.getParameter("passwd");
+			  String realname=request.getParameter("realname");
+			  editData(updateid,account,passwd,realname);
+		  }
+		  outHtml(queryData());	
+	}
+	
+	
    private void addData(String account,String passwd,String realname){
 	   try{
 		   PreparedStatement pstmt=conn.prepareStatement(
