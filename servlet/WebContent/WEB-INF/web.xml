@@ -137,6 +137,98 @@
     <url-pattern>/mars23</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>mars24</servlet-name>
+    <servlet-class>tw.org.iii.mars24</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars24</servlet-name>
+    <url-pattern>/mars24</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars25</servlet-name>
+    <servlet-class>tw.org.iii.mars25</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars25</servlet-name>
+    <url-pattern>/mars25</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars26</servlet-name>
+    <servlet-class>tw.org.iii.mars26</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars26</servlet-name>
+    <url-pattern>/mars26</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars27</servlet-name>
+    <servlet-class>tw.org.iii.mars27</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars27</servlet-name>
+    <url-pattern>/mars27</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars28</servlet-name>
+    <servlet-class>tw.org.iii.mars28</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars28</servlet-name>
+    <url-pattern>/mars28</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mars29</servlet-name>
+    <servlet-class>tw.org.iii.mars29</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars29</servlet-name>
+    <url-pattern>/mars29</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mars30</servlet-name>
+    <servlet-class>tw.org.iii.mars30</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars30</servlet-name>
+    <url-pattern>/mars30</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mars31</servlet-name>
+    <servlet-class>tw.org.iii.mars31</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars31</servlet-name>
+    <url-pattern>/mars31</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mars32</servlet-name>
+    <servlet-class>tw.org.iii.mars32</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars32</servlet-name>
+    <url-pattern>/mars32</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mars33</servlet-name>
+    <servlet-class>tw.org.iii.mars33</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mars33</servlet-name>
+    <url-pattern>/mars33</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>test02</servlet-name>
+    <servlet-class>tw.org.iii.test02</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>test02</servlet-name>
+    <url-pattern>/test02</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>MarsUtils</servlet-name>
     <servlet-class>tw.org.iii.MarsUtils</servlet-class>
   </servlet>
