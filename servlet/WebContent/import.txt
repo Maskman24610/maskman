@@ -1,0 +1,2 @@
+I am import text(Include)
+<font color='blue'>Text</text></font><br>
