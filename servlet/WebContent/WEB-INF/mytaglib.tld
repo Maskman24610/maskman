@@ -53,4 +53,11 @@
         	<rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>        
+    
+    <function>
+    	<description>Say Hello</description>
+    	<name>sayHello</name>
+    	<function-class>tw.mars.mytags.MarsFunctions</function-class>
+    	<function-signature>java.String sayHello(java.lang.String)</function-signature>
+    </function>
 </taglib>

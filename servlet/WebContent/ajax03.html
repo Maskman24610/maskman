@@ -1,0 +1,52 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+	$(document).ready(
+			function(){
+				$('#mybtn').click(
+						function(){
+							$('#here').load("mars96.jsp",
+									function(responseText,status,xhttp){
+										if(status=='success'){
+											alert("OK");
+											$('#span').html(responseText);
+											$('#span2').html(status);
+										}
+										else{
+											alert(status);
+										}
+							});
+						});
+				
+				$('#myget').click(
+						function(){
+							$.get('mars96.jsp?name=mars&year=2016',function(responseText,status){
+									alert(status);
+									$('#here2').html(responseText);
+							});			
+						});
+				
+				$('#mypost').click(
+						function(){
+							$.post('mars96.jsp',{name:"許用" ,year:2017},function(responseText,status){
+								alert(status);
+								$('#here3').html(responseText);
+							});
+						});
+				
+			});
+</script>
+<h1>林明瑩我喜歡妳</h1><hr>
+<input type='button' value='Start' id='mybtn'/>
+<hr>
+Hello,World
+<div id='here'></div>
+responseText=<span id='span'></span><br>
+status=<span id='span2'></span><hr>
+<input type='button' value='get' id='myget'>
+<div id='here2'></div> 
+<hr>
+<input type='button' value='post' id='mypost'>
+<div id='here3'></div>
+<hr>
+<input type='button' value='ajax' id='myajax'>
+<div id='here4'></div>

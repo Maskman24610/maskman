@@ -1,0 +1,43 @@
+<script>
+	//AJAX Object
+	var xhttp;
+	if(window.XMLHttpRequest){
+		xhttp=new XMLHttpRequest();
+	}
+	//for IE5 IE6
+	else{
+		xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	function test1(){
+		var newId=document.getElementById('id').value;
+		xhttp.open('GET','mars95.jsp?id='+newId,true);    //
+		//callback
+		xhttp.onreadystatechange=function(){
+			if(this.readyState==4 && this.status== 200){
+				var here=document.getElementById("here");
+				here.innerHTML=this.responseText;
+			}
+		}
+		xhttp.send();
+	}
+	var var1;
+	function test2(){
+		var1=setInterval(test1,1000);
+	}
+	function test3(){
+		clearInterval(var1);
+	}
+</script>
+<h1>Mars </h1><hr>
+<select id='id'>
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+</select>
+<hr>
+<input type='button' value='點我' onClick='test2()' />
+<input type='button' value='停止' onClick='test3()'>
+<div id='here'></div><hr>
+Hello,World

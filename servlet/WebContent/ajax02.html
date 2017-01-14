@@ -1,0 +1,27 @@
+<script>
+	var xhttp;
+	if(window.XMLHttpRequest){
+		xhttp=new XMLHttpRequest();
+	}
+	//for IE5 IE6
+	else{
+		xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	function test1(){
+		xhttp.open('Post','mars95.jsp',true);
+		xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+		//callback
+		xhttp.onreadystatechange=function(){
+			if(this.readyState==4 && this.status==200){
+				var here=document.getElementById('here');
+				here.innerHTML=this.responseText;
+			}
+		}
+		xhttp.send('id=4');
+	}
+</script>
+<h1>林明瑩我喜歡妳</h1><hr>
+<input type='button' value='Start' onClick='test1()'/>
+<hr>
+Hello,World
+<div id='here'></div>
