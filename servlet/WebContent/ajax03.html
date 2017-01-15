@@ -32,6 +32,14 @@
 								$('#here3').html(responseText);
 							});
 						});
+				$('#myajax').click(function(){
+					$.ajax({
+						url:'mars96.jsp?name=許用&year=2017',
+								success:function(result){
+									$('#here4').html(result);
+								}
+					});
+				});
 				
 			});
 </script>
