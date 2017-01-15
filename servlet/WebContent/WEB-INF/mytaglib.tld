@@ -58,6 +58,13 @@
     	<description>Say Hello</description>
     	<name>sayHello</name>
     	<function-class>tw.mars.mytags.MarsFunctions</function-class>
-    	<function-signature>java.String sayHello(java.lang.String)</function-signature>
+    	<function-signature>java.lang.String sayHello(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+    	<description>Say Hello</description>
+    	<name>sayHellov2</name>
+    	<function-class>tw.mars.mytags.MarsFunctions</function-class>
+    	<function-signature>java.lang.String sayHello(java.lang.String[])</function-signature>
     </function>
 </taglib>

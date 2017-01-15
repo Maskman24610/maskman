@@ -1,0 +1,46 @@
+
+<meta http-equiv='Content-type' content='text/html;charset=utf-8'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+
+</script>
+<script>
+	function test1(){
+		$.ajax({
+			url:'http://www.brad.tw/iii/brad.php',
+			type:'get',
+			dataType:'jsonp',  //crossDomain=> must be jsonp
+			crossDomain:true,
+			success:doSuccess,
+			error:doError
+		});
+	}
+	
+	function doSuccess(json){
+		$('#table').empty();
+		$('#table').append('<tr>'+
+		'<th>店名</th>'+
+		'<th>地址</th>'+
+		'<th>電話</th>'+
+	    '</tr>');
+		var jsonObj=$.parseJSON(json);
+		$(jsonObj).each(
+				function(i,val){
+					$('#table').append(
+						'<tr>'+
+						'<td>'+val.Name+'</td>'+
+						'<td>'+val.Address+'</td>'+
+						'<td>'+val.Tel+'</td>'+
+						'</tr>'
+					);	
+				});
+	}
+	
+	function doError(mesg){
+		$('#error').html(mesg)	
+	}
+</script>
+<input type='button' value='ajax' onClick='test1()'/><br/>
+Success: <span id='success'></span><br>
+Error: <span id='error'></span>
+<table border='1 ' width='100%' id='table'>
+</table>
